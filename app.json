@@ -1,0 +1,6 @@
+{
+  "name": "GetUrl",
+  "description": "Get direct link to file from page",
+  "repository": "https://github.com/ThirteenAG/node-js-geturl",
+  "keywords": ["node", "express", "static"]
+}

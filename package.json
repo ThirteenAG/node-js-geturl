@@ -1,0 +1,26 @@
+{
+  "name": "node-js-geturl",
+  "version": "0.1.0",
+  "description": "Get direct link to file from page",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThirteenAG/node-js-geturl"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "ThirteenAG",
+  "license": "MIT"
+}
