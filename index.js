@@ -1,3 +1,4 @@
+"use strict";
 let cheerio = require('cheerio');
 var url = require('url');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
