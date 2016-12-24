@@ -17,5 +17,5 @@ Getting href of '[Releases](https://node-js-geturl.herokuapp.com/?url=%28https:/
 
 Getting href of Github's [privacy policy](https://node-js-geturl.herokuapp.com/?url=(https://github.com/)&selector=(p.form-control-note a[href*=terms])) link on main page:
 
-    https://node-js-geturl.herokuapp.com/?url=(https://github.com/)&selector=(p.form-control-note a[href*=terms])
+    https://node-js-geturl.herokuapp.com/?url=(https://github.com/)&selector=(p.form-control-note > a[href*=terms])
 
