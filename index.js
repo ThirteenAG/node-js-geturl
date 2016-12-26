@@ -29,11 +29,13 @@ app.get('/', function(request, response) {
           //console.log("Body:\n" + this.responseText);
           let $ = cheerio.load(this.responseText);
           var object = $('<div/>').html($.html()).contents();
-          var link = object.find(pSelector).attr("href");
-
-          console.log("link: " + link);
-
-          response.send(link);
+          try {
+            var link = object.find(pSelector);
+            response.send(link.attr("href"));
+          }
+          catch (exc) {
+            response.send("");
+          }
       	}
       };
 
