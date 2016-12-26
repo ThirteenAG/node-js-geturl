@@ -40,8 +40,11 @@ app.get('/', function(request, response) {
       xhr.open("GET", pUrl);
       xhr.send();
     }
-  }
+    else
       response.send("");
+  }
+  else
+    response.send("");
 })
 
 app.listen(app.get('port'), function() {
