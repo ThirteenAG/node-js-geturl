@@ -41,8 +41,7 @@ app.get('/', function(request, response) {
       xhr.send();
     }
   }
-  else
-    response.send("");
+      response.send("");
 })
 
 app.listen(app.get('port'), function() {
