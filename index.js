@@ -17,26 +17,29 @@ app.get('/', function(request, response) {
 
   if ((typeof pUrl != 'undefined') && (typeof pSelector != 'undefined'))
   {
-    pUrl = pUrl.substr(1, pUrl.length - 2);
-    pSelector =  pSelector.substr(1, pSelector.length - 2);
+    if (isBalanced(pUrl) === true && isBalanced(pSelector) === true)
+    {
+      pUrl = pUrl.substr(1, pUrl.length - 2);
+      pSelector =  pSelector.substr(1, pSelector.length - 2);
 
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-    	if (this.readyState === 4) {
-        console.log("Complete.\nBody length: " + this.responseText.length);
-        //console.log("Body:\n" + this.responseText);
-        let $ = cheerio.load(this.responseText);
-        var object = $('<div/>').html($.html()).contents();
-        var link = object.find(pSelector).attr("href");
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+      	if (this.readyState === 4) {
+          console.log("Complete.\nBody length: " + this.responseText.length);
+          //console.log("Body:\n" + this.responseText);
+          let $ = cheerio.load(this.responseText);
+          var object = $('<div/>').html($.html()).contents();
+          var link = object.find(pSelector).attr("href");
 
-        console.log("link: " + link);
+          console.log("link: " + link);
 
-        response.send(link);
-    	}
-    };
+          response.send(link);
+      	}
+      };
 
-    xhr.open("GET", pUrl);
-    xhr.send();
+      xhr.open("GET", pUrl);
+      xhr.send();
+    }
   }
   else
     response.send("");
@@ -45,3 +48,18 @@ app.get('/', function(request, response) {
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'));
 })
+
+var haveSameLength = function(str, a, b){
+    return (str.match(a) || [] ).length === (str.match(b) || [] ).length;
+};
+
+var isBalanced = function(str){
+    var arr = [ 
+        [ /\(/gm, /\)/gm ], [ /\{/gm, /\}/gm ], [ /\[/gm, /\]/gm ] 
+    ], i = arr.length, isClean = true;
+
+    while( i-- && isClean ){
+        isClean = haveSameLength( str, arr[i][0], arr[i][1] );
+    }
+    return isClean;
+};
