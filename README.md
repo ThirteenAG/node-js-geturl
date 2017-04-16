@@ -19,3 +19,7 @@ Getting href of Github's [privacy policy](https://node-js-geturl.herokuapp.com/?
 
     https://node-js-geturl.herokuapp.com/?url=(https://github.com/)&selector=(p.form-control-note > a[href*=terms])
 
+
+Same thing, but [with redirect:](https://node-js-geturl.herokuapp.com/?url=(https://github.com/)&selector=(p.form-control-note>a[href*=terms])&redirect)
+
+    https://node-js-geturl.herokuapp.com/?url=(https://github.com/)&selector=(p.form-control-note > a[href*=terms])&redirect
